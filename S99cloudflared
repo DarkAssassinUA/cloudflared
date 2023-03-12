@@ -1,0 +1,62 @@
+#!/bin/sh
+
+PATH=/opt/bin:/opt/home:/sbin:/bin:/usr/sbin:/usr/bin
+
+PIDFILE="/opt/var/run/cloudflared.pid"
+CLOUDFLARED="/opt/home/cloudflared"
+
+
+cloudflared_status ()
+{
+	[ -f $PIDFILE ] && [ -d /proc/`cat $PIDFILE` ]
+}
+
+start()
+{
+    sleep 60
+	$CLOUDFLARED --no-autoupdate --pidfile=$PIDFILE tunnel run --token %yourtokenhere% 
+}
+
+stop()
+{
+	kill `cat $PIDFILE`
+}
+case "$1" in
+	start)
+		if cloudflared_status
+		then
+			echo cloudflared already running
+		else
+			start
+		fi
+		;;
+	stop)
+		if cloudflared_status
+		then
+			stop
+		else
+			echo cloudflared is not running
+		fi
+		;;
+	status)
+		if cloudflared_status
+		then
+			echo cloudflared already running
+		else
+			echo cloudflared is not running
+		fi
+		;;
+
+	restart)
+		stop
+		sleep 3
+		start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart|status}"
+		;;
+esac
+
+maded by Dark_AssassinUA special for https://github.com/DarkAssassinUA/cloudflared
+Tested on Keenetic Viva (KN-1910) with OPKG on external device
+Suggestions - m.mudryi@my.com

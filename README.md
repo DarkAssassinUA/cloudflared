@@ -2,7 +2,7 @@ Cloudflare Tunnel client for mipsle devices
 
 Tested on Keenetic Viva (KN19-10)
 
-
+Current version 2024.1.5
 
 Compiled binary from https://github.com/cloudflare/cloudflared to mipsle devices.
 Tested on Keenetic Viva(KN-1910) with Entware

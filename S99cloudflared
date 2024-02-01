@@ -59,4 +59,5 @@ esac
 
 maded by Dark_AssassinUA special for https://github.com/DarkAssassinUA/cloudflared
 Tested on Keenetic Viva (KN-1910) with OPKG on external device
-Suggestions - m.mudryi@my.com
+Suggestions - m@mudryi.ovh
+This script work with all version of cloudflared

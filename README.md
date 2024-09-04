@@ -2,17 +2,34 @@ Cloudflare Tunnel client for mipsle devices
 
 Tested on Keenetic Viva (KN19-10)
 
-Current version 2024.1.5
+Current version `2024.8.3`
+
+WARNING: All software provided here is provided as is without any questions or complaints. Please direct all questions and complaints to the original cloudflared repository, this is just an assembly for miplse devices assembled from the source code without any changes. All open issues related to the work of cloudflared itself will be closed without response. You have been warned.
 
 Compiled binary from https://github.com/cloudflare/cloudflared to mipsle devices.
-Tested on Keenetic Viva(KN-1910) with Entware
+Tested on Keenetic Viva(KN-1910)(Keenetic OS 4.2 Beta 3) with Entware
 
 Usage:
+Connect to OPKG SSH
 
--S99cloudflared put to /etc/init.d folder on opkg drive and replace in 17 string %yourtokenhere% with you token obtained in Cloudflare Zero Trust Dashboard
+`opkg install wget-ssl `
+(if wget already exists and saying about http or ftp connection -  `opkg remove wget-nossl `
 
--cloudflared put to /home/ folder and make in ssh console chmod +x /opt/home/cloudflared
+`wget -O /opt/etc/init.d/S99cloudflared https://raw.githubusercontent.com/DarkAssassinUA/cloudflared/main/S99cloudflared `
 
-after that - just reboot router,after 60 seconds cloudflared will be online and visible in Cloudflare Zero Trust Dashboard
 
+`nano /opt/etc/init.d/S99cloudflared` -- and replace `%yourtoken%` with your token obtain at Cloudflare Zero Trust Dashboard-Networks-Tunnels-Tunnel Name
+
+`chmod +x /opt/etc/init.d/S99cloudflared`
+
+`wget -O /opt/home/cloudflared https://github.com/DarkAssassinUA/cloudflared/raw/main/cloudflared`
+
+
+`chmod +x /opt/home/cloudflared`
+
+After that - just reboot router,after 60 seconds cloudflared will be online and visible in Cloudflare Zero Trust Dashboard
+Or just
+
+
+`/opt/etc/init.d/S99cloudflared start`
 

@@ -28,6 +28,8 @@ Connect to OPKG SSH
 `chmod +x /opt/home/cloudflared`
 
 After that - just reboot router,after 60 seconds cloudflared will be online and visible in Cloudflare Zero Trust Dashboard
+
+
 Or just
 
 

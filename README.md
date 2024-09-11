@@ -2,7 +2,7 @@ Cloudflare Tunnel client for mipsle devices
 
 Tested on Keenetic Viva (KN19-10)
 
-Current version `2024.8.3`
+Current version `2024.9.1`
 
 WARNING: All software provided here is provided as is without any questions or complaints. Please direct all questions and complaints to the original cloudflared repository, this is just an assembly for miplse devices assembled from the source code without any changes. All open issues related to the work of cloudflared itself will be closed without response. You have been warned.
 

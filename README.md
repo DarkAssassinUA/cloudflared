@@ -1,8 +1,9 @@
 Cloudflare Tunnel client for mipsle devices
 
-Tested on Keenetic Viva (KN19-10)
+Tested on Keenetic Viva (KN-1910)
 
-Current version `2024.9.1`
+Current version `2025.1.0`
+Builded with Go `1.23.4`
 
 WARNING: All software provided here is provided as is without any questions or complaints. Please direct all questions and complaints to the original cloudflared repository, this is just an assembly for miplse devices assembled from the source code without any changes. All open issues related to the work of cloudflared itself will be closed without response. You have been warned.
 
@@ -35,3 +36,27 @@ Or just
 
 `/opt/etc/init.d/S99cloudflared start`
 
+
+Build yourself:
+If u wanna buid it urself - install Go Lang FIRST!!!
+`apt update & apt upgrade`
+next step is cloning cloudflared repo:
+`git clone https://github.com/cloudflare/cloudflared & cd cloudflared`
+build toolchain for building(lmao) cloudflared
+
+`./.teamcity/install-cloudflare-go.sh`
+
+if u see - 
+
+`Installed Go for linux/amd64 in /tmp/go`
+`Installed commands in /tmp/go/bin` - all ok
+
+Next step is compiling cloudflared
+`TARGET_ARCH=mipsle GOMIPS=softfloat make cloudflared`
+after compiling - u can found `cloudflared` binary in folder
+
+Updating:
+if u wanna update `cloudflared`:
+`cd cloudflared`
+`git pull`
+`TARGET_ARCH=mipsle GOMIPS=softfloat make cloudflared`

@@ -38,10 +38,15 @@ Or just
 
 
 Build yourself:
+
 If u wanna buid it urself - install Go Lang FIRST!!!
+
 `apt update & apt upgrade`
+
 next step is cloning cloudflared repo:
+
 `git clone https://github.com/cloudflare/cloudflared & cd cloudflared`
+
 build toolchain for building(lmao) cloudflared
 
 `./.teamcity/install-cloudflare-go.sh`
@@ -52,11 +57,18 @@ if u see -
 `Installed commands in /tmp/go/bin` - all ok
 
 Next step is compiling cloudflared
+
 `TARGET_ARCH=mipsle GOMIPS=softfloat make cloudflared`
+
 after compiling - u can found `cloudflared` binary in folder
 
 Updating:
+
+
 if u wanna update `cloudflared`:
+
 `cd cloudflared`
+
 `git pull`
+
 `TARGET_ARCH=mipsle GOMIPS=softfloat make cloudflared`
